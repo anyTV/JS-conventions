@@ -78,7 +78,7 @@ Source codes should be like a book, understandable by reading from top to bottom
     // by creating an anonymous one then assign to a variable.
     // This way, we only have one way of declaring things
 
-    // Bad
+    // not really bad, we just prefer the other way for uniformity
     function foo () {
 
     }
@@ -256,7 +256,7 @@ Source codes should be like a book, understandable by reading from top to bottom
     // Use filter to filter array
     // promotes readability
 
-    array = array.filter(function (element, index. array) {
+    array = array.filter(function (element, index, array) {
         return element.property === bar;
     });
 
@@ -275,10 +275,12 @@ Source codes should be like a book, understandable by reading from top to bottom
     array
         .filter(function (element) {
             return element.count > 50;
-        }).map(function (element) {
+        })
+        .map(function (element) {
             element.count += 100;
             return element;
-        }).forEach(function (element) {
+        })
+        .forEach(function (element) {
             foo(element);
         });
     ```
