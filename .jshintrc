@@ -13,6 +13,6 @@
   "latedef" : true,
   "immed" : true,
   "maxdepth" : 4,
-  "maxlen" : 100,
+  "maxlen" : 120,
   "shadow" : "outer"
 }
