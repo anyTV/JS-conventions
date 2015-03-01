@@ -3,6 +3,8 @@
 All code in any code-base should look like a single person typed it, no matter how many people contributed.
 
 Source codes should be like a book, understandable by reading from top to bottom.
+Choose readability over performance in most cases.
+Use `.jshintrc` to verify code quality.
 
 
 ## Manifesto
