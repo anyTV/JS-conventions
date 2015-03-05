@@ -4,8 +4,15 @@ All code in any code-base should look like a single person typed it, no matter h
 
 Source codes should be like a book, understandable by reading from top to bottom.
 Choose readability over performance in most cases.
-Use `.jshintrc` to verify code quality.
 
+Use `.jshintrc` to verify code quality. Use `.jsbeautifyrc` to format code.
+
+
+Our sublime plugins:
+- [JSHint Gutter](https://github.com/victorporof/Sublime-JSHint)
+- [HTML-CSS-JS Prettify](https://github.com/victorporof/Sublime-HTMLPrettify)
+
+Some of the conventions will be handled by HTML-CSS-JS Prettify plugin.
 
 ## Manifesto
 
