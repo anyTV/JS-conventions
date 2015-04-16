@@ -54,7 +54,8 @@ Some of the conventions will be handled by HTML-CSS-JS Prettify plugin.
 
     try {
 
-    } catch (e) {
+    }
+    catch (e) {
 
     }
 
