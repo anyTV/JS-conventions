@@ -36,9 +36,11 @@ Some of the conventions will be handled by HTML-CSS-JS Prettify plugin.
 
     if (condition) {
 
-    } else if (condition) {
+    }
+    else if (condition) {
 
-    } else {
+    }
+    else {
 
     }
 
@@ -123,7 +125,8 @@ Some of the conventions will be handled by HTML-CSS-JS Prettify plugin.
 
     if (condition) {
         // statements
-    } else {
+    }
+    else {
         // statements
     }
 
