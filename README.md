@@ -14,6 +14,8 @@ Our sublime plugins:
 
 Some of the conventions will be handled by HTML-CSS-JS Prettify plugin.
 
+Note: Not all codes should be prettified using this plugins. It's not a de facto standard. There are still plenty of ways to present the code in a better manner.
+
 ## DRY Principle
 
 [Don't Repeat Yourself](http://en.wikipedia.org/wiki/Don%27t_repeat_yourself)
@@ -220,6 +222,8 @@ Some of the conventions will be handled by HTML-CSS-JS Prettify plugin.
     ```javascript
     // string to number
     +'1'; // 1
+    // or
+    Math.parseInt('1'); // 1
 
     // to boolean
     !!variable;
@@ -301,3 +305,6 @@ Some of the conventions will be handled by HTML-CSS-JS Prettify plugin.
             foo(element);
         });
     ```
+
+    // If lodash is available, use its full potential
+    
