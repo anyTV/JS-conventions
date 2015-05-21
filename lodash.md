@@ -40,7 +40,7 @@ my_array = _(my_array)
   .value();
 // ['Raven', 'John', 'rvnjl']
 ```
-Use `.value()` when you need the last state of your variable like `.map`, `.filter`, `.reduce`, etc.
+Use `.value()` when you need the last state of your variable like `.map`, `.filter`, `.reduce`, etc. Basically, when you want to assign it on a variable.
 
 ###.commit()
 executes the things you want to do and then returns the lodash wrapper instance
