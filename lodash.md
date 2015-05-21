@@ -34,9 +34,8 @@ _(my_array) // create a lodash wrapper instance from an array, string or object
 
 ##When to use `.value()` over `.commit()` and vice-versa.
 ###.value()
-returns the last value
 ```javascript
-_(my_array)
+my_array = _(my_array)
   .pluck('name')
   .value();
 // ['Raven', 'John', 'rvnjl']
