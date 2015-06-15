@@ -1,20 +1,16 @@
 # JavaScript Convention
 
-All code in any code-base should look like a single person typed it, no matter how many people contributed.
-
+All code in any code-base should look like a single person cided it, no matter how many people contributed.
 Source codes should be like a book, understandable by reading from top to bottom.
 Choose readability over performance in most cases.
 
-Use `.jshintrc` to verify code quality. Use `.jsbeautifyrc` to format code.
-
-
-Our sublime plugins:
+Sublime plugin for checking code quality:
 - [JSHint Gutter](https://github.com/victorporof/Sublime-JSHint)
+> Use `.jshintrc` provided in this repository
+
+Sublime plugin for formatting code:
 - [HTML-CSS-JS Prettify](https://github.com/victorporof/Sublime-HTMLPrettify)
-
-Some of the conventions will be handled by HTML-CSS-JS Prettify plugin.
-
-Note: Not all codes should be prettified using this plugins. It's not a de facto standard. There are still plenty of ways to present the code in a better manner.
+> To be honest, self-discipline in coding should be enough. This doesn't produce the prettiest code. There are still plenty of ways to present the code in a better manner.
 
 ## DRY Principle
 
@@ -22,47 +18,65 @@ Note: Not all codes should be prettified using this plugins. It's not a de facto
 
 ## Manifesto
 
-
 1. Soft Indents (4 spaces)
 2. Beautiful Syntax
 
-    A. Parens, Braces, Linebreaks
+    A. Parentheses, Spacing, Braces, Linebreaks
 
     ```javascript
-    // if/else/for/while/try always have spaces, braces and span multiple lines
-    // this encourages readability
+    /*
+        if/else/for/while/try always have braces and span multiple lines
+    */
 
     // Bad
-    if (condition) dothis;
-
-    for (i = 0; i < max; i += 1)
-        foo();
+    if (condition)
+        dothis();
 
     // Good
+    if (condition) {
+        dothis();
+    }
+    ```
 
+    ```javascript
+    /*
+        Insert spaces between reserved words and (), {} and operators
+    */
+
+    // Bad
+    for(i=0;i<len;i+=1){
+
+    }
+
+    // Good
+    for (i = 0; i < len; i += 1) {
+
+    }
+    ```
+
+    ```javascript
+    /*
+        If the code block contains a lot of statements, apply proper linebreaks
+    */
+
+    // Bad
+    if (condition) {
+        my_var = my_object.do_something(in_this, and_this);
+        my_second_var = your_object.thing.do_things(my_var);
+        if (another_condition) {
+            third_var = something();
+        }
+    }
+
+    // Good
     if (condition) {
 
-    }
-    else if (condition) {
+        my_var = my_object.do_something(in_this, and_this);
+        my_second_var = your_object.thing.do_things(my_var);
 
-    }
-    else {
-
-    }
-
-    while (condition) {
-
-    }
-
-    for (i = 0; i < max; i += 1) {
-
-    }
-
-    try {
-
-    }
-    catch (e) {
-
+        if (another_condition) {
+            third_var = something();
+        }
     }
 
     ```
@@ -70,16 +84,14 @@ Note: Not all codes should be prettified using this plugins. It's not a de facto
     B. Assignments, Declarations, Functions ( Named, Expression, Constructor )
 
     ```javascript
-    // Using only one `var` per scope (function) promotes readability
-    // and keeps your declaration list free of clutter (also saves a few keystrokes)
-    // `var` statements should always be in the beginning of their respective scope (function).
-    // it's like preparing ingredients before you cook
-
+    /*
+        Use only one `var` per function
+        Variable declaration should always the first statement
+        It's like listing ingredients before you cook
+    */
     // Bad
-    function fn () {
-
+    var fn = function () {
         // some statements
-
         var a = 3;
     }
 
@@ -92,11 +104,42 @@ Note: Not all codes should be prettified using this plugins. It's not a de facto
     ```
 
     ```javascript
-    // Forget about named functions, always create functions
-    // by creating an anonymous one then assign to a variable.
-    // This way, we only have one way of declaring things
+    /*
+        Declare initialized non-function variables first
+        Followed by uninitialized non-function variables
+        Followed by functions
+        Sorting lines by character length can also add more readability
+        If there are a lot of variables, group them by linebreaks
+    */
 
-    // not really bad, we just prefer the other way for uniformity
+    // Bad
+    var do = function () {
+
+        },
+        my_thing,
+        my_third_thing,
+        my_second_thing,
+        thing = '';
+
+    // Good
+    var thing = '',
+
+        my_second_thing,
+        my_third_thing,
+        my_thing,
+
+        do = function () {
+
+        };
+    ```
+
+    ```javascript
+    /*
+        Create functions by assigning it to a variable
+        This way, we only have one way of declaring things
+    */
+
+    // not really Bad
     function foo () {
 
     }
@@ -107,16 +150,12 @@ Note: Not all codes should be prettified using this plugins. It's not a de facto
     };
     ```
 
-    C. Exceptions, Slight Deviations
+    C. Consistency Always Win
 
     ```javascript
-    // None yet
-    ```
-
-    D. Consistency Always Wins
-
-    ```javascript
-    // Notice the spaces in the following snippets
+    /*
+        Notice the spaces in the following snippets
+    */
 
     if (condition) {
         // statements
@@ -167,23 +206,26 @@ Note: Not all codes should be prettified using this plugins. It's not a de facto
     var foo = 1 + (1 * 2);
     ```
 
-    E. Quotes
+    D. Quotes
 
     ```javascript
-    // Single quotes on strings
+    /*
+        Single quotes on strings
+    */
     var foo = 'string';
     ```
 
-    F. End of Lines and Empty Lines
+    E. End of Lines and Empty Lines
 
     ```javascript
     // Always trim trailing spaces
 
     var a = 1;
-    // ^ There should not be a space after the semi-colon
+    // ^ There should not be a space after the last character
 
     // Put an empty line before end of file
     ```
+
 3. Type Checking
 
     A. Actual Types
@@ -210,7 +252,7 @@ Note: Not all codes should be prettified using this plugins. It's not a de facto
     // undefined :
     typeof variable === 'undefined'
 
-    // null or undefined or 0 :
+    // null or undefined or 0 or '':
     !variable
 
     // property exists :
@@ -223,24 +265,26 @@ Note: Not all codes should be prettified using this plugins. It's not a de facto
     // string to number
     +'1'; // 1
     // or
-    Math.parseInt('1'); // 1
+    parseInt('1'); // 1
 
     // to boolean
     !!variable;
 
     // to string
     '' + variable;
+    // or
+    variable.toString();
 
     ```
 4. Conditional Evaluation
 
     ```javascript
-    // When only evaluating that an array has length,
+    // When evaluating if an array has elements,
     // instead of this:
-    if (array.length > 0) ...
+    if (array.length > 0) {
 
     // ...evaluate truthiness, like this:
-    if (array.length) ...
+    if (array.length) {
 
     // property check
     if (obj.prop && obj.prop === foo) {
@@ -250,19 +294,17 @@ Note: Not all codes should be prettified using this plugins. It's not a de facto
     // always always always use triple equals when evaluating equality
     1 === 1
     ```
-5. Practical Style
+
+5. Naming
 
     ```javascript
-    // Just apply everything
-    ```
-
-6. Naming
-
-    ```javascript
-    // snake_case on variables including functions
+    /*
+        snake_case on variables including functions
+    */
     var foo_bar;
     ```
-7. Misc
+
+6. Misc
 
     ```javascript
 
@@ -307,4 +349,4 @@ Note: Not all codes should be prettified using this plugins. It's not a de facto
     ```
 
     // If lodash is available, use its full potential
-    
+
