@@ -195,8 +195,8 @@ Sublime plugin for formatting code:
 
     var foo = [1, 2, 3],
         bar = {
-            prop1 : value,
-            prop2 : value2
+            prop1: value,
+            prop2: value2
         };
 
     if (foo === bar) {
@@ -215,15 +215,85 @@ Sublime plugin for formatting code:
     var foo = 'string';
     ```
 
-    E. End of Lines and Empty Lines
+    E. End of Lines and End of File
 
     ```javascript
     // Always trim trailing spaces
 
     var a = 1;
-    // ^ There should not be a space after the last character
 
+    // There should not be anymore character after the semi-colon
     // Put an empty line before end of file
+    ```
+
+    F. Forming and accessing objects and arrays
+
+    ```javascript
+    /*
+        When forming an object, don't put quotes on the property unless needed
+    */
+
+    // Bad
+    var obj = {
+        'prop1': 'value',
+        'prop2': 'value2'
+    };
+
+    // Good
+    var obj = {
+        prop1: 'value',
+        prop2: 'value2',
+        'special-property': 'value3'
+    };
+    ```
+
+    ```javascript
+    /*
+        Always always always access properties using dot notation unless not allowed
+    */
+
+    // Bad
+    obj['prop'] = 'new_value';
+
+    // Good
+    obj.prop = 'new_value';
+    obj['special-property'] = 'new_value';
+    ```
+
+    ```javascript
+    /*
+        When forming an array, just try to have a good alignment
+    */
+
+    // Bad
+    var obj = ['something', 'something_again'];
+
+    // Good
+    var obj = [
+        'something',
+        'something_again'
+    ];
+    ```
+
+    ```javascript
+
+    /*
+        Make the object/array one-liner if there's only 1 property/element
+    */
+
+    // Bad
+    var obj = {
+        prop1 : 'value1'
+    };
+
+    var array = [
+        'something'
+    ];
+
+    // Good
+    var obj = {prop1: 'value1'};
+
+    var array = ['something'];
     ```
 
 3. Type Checking
@@ -305,6 +375,24 @@ Sublime plugin for formatting code:
     ```
 
 6. Misc
+
+    ```javascript
+    /*
+        If the function has a lot of arguments,
+        try adding line breaks to make it more readable
+    */
+
+    // Bad
+    do_this(this_one, plus_this_one, true, [this_also, this_also2]);
+
+    // Good
+    do_this(
+        this_one,
+        plus_this_one,
+        true,
+        [this_also, this_also2]
+    );
+    ```
 
     ```javascript
 
