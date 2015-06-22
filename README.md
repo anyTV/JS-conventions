@@ -296,6 +296,26 @@ Sublime plugin for formatting code:
 
     var array = ['something'];
     ```
+    
+    G. Ternary operators
+    
+    ```javascript
+
+    // on a normal condition
+
+    temp = condition
+        ? value
+        : value2;
+        
+        
+    // on variable declaration:
+    
+    var temp = condition
+            ? value
+            : value2,
+        temp2 = null,
+        more_variables..
+    ```
 
 3. Type Checking
 
