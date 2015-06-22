@@ -278,7 +278,8 @@ Sublime plugin for formatting code:
     ```javascript
 
     /*
-        Make the object/array one-liner if there's only 1 property/element and the value is not that long
+        Make the object/array a one-liner if there's only 1 property/element
+        and the value is not that long
     */
 
     // Bad
