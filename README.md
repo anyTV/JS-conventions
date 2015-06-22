@@ -230,7 +230,7 @@ Sublime plugin for formatting code:
 
     ```javascript
     /*
-        When forming an object, don't put quotes on the property unless needed
+        When forming an object, don't put quotes on the property unless needed 
     */
 
     // Bad
@@ -278,7 +278,7 @@ Sublime plugin for formatting code:
     ```javascript
 
     /*
-        Make the object/array one-liner if there's only 1 property/element
+        Make the object/array one-liner if there's only 1 property/element and the value is not that long
     */
 
     // Bad
