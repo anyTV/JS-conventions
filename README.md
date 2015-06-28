@@ -90,13 +90,13 @@ Sublime plugin for formatting code:
         It's like listing ingredients before you cook
     */
     // Bad
-    var fn = function () {
+    function foo () {
         // some statements
         var a = 3;
     }
 
     // Good
-    var fn = function () {
+    function foo () {
         var a = 3;
 
         // some statements
@@ -105,18 +105,20 @@ Sublime plugin for formatting code:
 
     ```javascript
     /*
-        Declare initialized non-function variables first
-        Followed by uninitialized non-function variables
+        Declare initialized variables first
+        Followed by uninitialized variables
         Followed by functions
         Sorting lines by character length can also add more readability
         If there are a lot of variables, group them by linebreaks
     */
 
     // Bad
-    var do = function () {
 
-        },
-        my_thing,
+    function foo () {
+
+    }
+
+    var my_thing,
         my_third_thing,
         my_second_thing,
         thing = '';
@@ -126,26 +128,26 @@ Sublime plugin for formatting code:
 
         my_second_thing,
         my_third_thing,
-        my_thing,
+        my_thing;
 
-        do = function () {
+    function foo () {
 
-        };
+    }
     ```
 
     ```javascript
     /*
-        Create functions by assigning it to a variable
-        This way, we only have one way of declaring things
+        Always name functions
+        it helps on profiling and debugging
     */
 
     // not really Bad
-    function foo () {
+    var foo = function () {
 
     }
 
     // Good
-    var foo = function () {
+    function foo () {
 
     };
     ```
@@ -230,7 +232,7 @@ Sublime plugin for formatting code:
 
     ```javascript
     /*
-        When forming an object, don't put quotes on the property unless needed 
+        When forming an object, don't put quotes on the property unless needed
     */
 
     // Bad
@@ -296,9 +298,9 @@ Sublime plugin for formatting code:
 
     var array = ['something'];
     ```
-    
+
     G. Ternary operators
-    
+
     ```javascript
 
     // on a normal condition
@@ -306,10 +308,10 @@ Sublime plugin for formatting code:
     temp = condition
         ? value
         : value2;
-        
-        
+
+
     // on variable declaration:
-    
+
     var temp = condition
             ? value
             : value2,
