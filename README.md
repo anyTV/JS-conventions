@@ -318,7 +318,8 @@ Sublime plugin for formatting code:
         temp2 = null,
         more_variables..
     
-    // If the condition and values are short, one-liner is fine. Example:
+    
+    // Note that if the condition and values are short, one-liner is fine. Example:
     
     var temp = hidden ? 10 : 5,
     ```
